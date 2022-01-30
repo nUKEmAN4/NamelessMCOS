@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>NamelessOS</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/terminal.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @layer base {
+            body {
+                cursor: url(img/cursor/cursor.png), auto;
+            }
+
+            a {
+                cursor: url(img/cursor/pointer.png), auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div>
+    <div class="navbarDiv">
+        <nav id="header" class="w-full p-0 bg-zinc-800 shadow-lg pb-0">
+            <div class="w-full flex items-center justify-between mt-0 px-2 py-1">
+
+                <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                    <nav>
+                        <ul class="md:flex items-center justify-between text-base text-blue-600 p-0 md:pt-0">
+                            <li class="mr-4 h-9">
+                                <a onclick="return false;" id="about_window"><img
+                                        src="https://namelessmc.com/core/assets/img/site_image.png" alt=""
+                                        style="width:42px"></a>
+                            </li>
+                            <li>
+
+                            <li>
+                                <a class="mb-0 inline-block no-underline hover:text-orange-500 text-slate-300 font-medium py-2 px-4 lg:-ml-2"
+                                   onclick="return false;" id="appWindow">
+                                    <span class="font-medium">Apps</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="mb-0 inline-block no-underline hover:text-orange-500 text-slate-300 font-medium py-2 px-4 lg:-ml-2"
+                                   onclick="return false;" id="terminalstart">
+                                        <span class="font-medium">Terminal</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="inline-block no-underline hover:text-orange-500 text-slate-300 font-medium py-2 px-4 lg:-ml-2"
+                                   onclick="return false;" id="namelessweb_window">
+                                        <span class="font-medium">Nameless Web</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!--RIGHT SIDE OF TOP BAR-->
+                <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+                    <div class="auth flex items-center w-full md:w-full">
+                        <nav>
+                            <ul class="md:flex items-center justify-between text-base text-blue-600 p-0 md:pt-0">
+                                <li>
+                                    <a class="inline-block no-underline hover:text-orange-500 text-slate-300 font-medium py-2 px-4 lg:-ml-2"
+                                       onclick="return false;">
+                                        <div class="flex items-center">
+                                            <div class="mr-2">
+                                                <img width="24" height="24"
+                                                     src="img/icons/no-wifi.png"
+                                                     alt="">
+                                            </div>
+                                            <span class="font-medium"></span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="inline-block no-underline text-slate-300 font-medium py-2 px-4 lg:-ml-2"
+                                       onclick="return false;">
+                                        <span class="font-medium" id="digitalClock">00:00:00</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+
+
+    <!--IMAGE IN MIDDLE-->
+    <div class="bodyDiv">
+        <div class="grid place-items-center h-screen">
+            <img style="pointer-events: none;" src="https://namelessmc.com/core/assets/img/site_image.png" alt=""
+                 width="15%">
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+
+<!--BROWSER WINDOW-->
+<div class="hidden">
+    <div id="namelessWebDiv">
+        <div class="flex justify-center pt-20">
+            <div>
+                <img style="width:20%;" class="w-2/3 ml-auto mr-auto mb-6"
+                     src="https://namelessmc.com/core/assets/img/site_image.png">
+                <input type="text"
+                       class="w-full outline-none px-3 flex border border-gray-200 rounded-full p-3 shadow text-l">
+                <div class="mt-8 text-center">
+                    <button onclick="" id="namelessWebButton"
+                            class="px-4 py-1 text-sm text-orange-600 font-semibold border border-orange-200 hover:text-white hover:bg-orange-600 hover:border-transparent focus:outline-none            focus:ring-2 focus:ring-orange-600 focus:ring-offset-2">
+                        Nameless Search
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="fixed bottom-0 bg-gray-200 border-t w-full flex justify-between text-gray-600 text-xs">
+            <div class="flex">
+                <a target="_blank" class="block p-3" href="https://namelessmc.com/resources/">Resources</a>
+                <a target="_blank" class="block p-3" href="https://namelessmc.com/forum/">Forum</a>
+                <a target="_blank" class="block p-3" href="https://namelessmc.com/download/">Download NamelessMC</a><a>
+            </a></div>
+            <a>
+            </a>
+            <div class="flex"><a>
+            </a><a target="_blank" class="block p-3" href="https://namelessmc.com/privacy/">Privacy</a>
+                <a target="_blank" class="block p-3" href="https://namelessmc.com/terms/">Terms</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--NO INTERNET ACCESS WINDOW-->
+<div class="hidden">
+    <div id="namelessWebConnectionError">
+        <div class="justify-center overflow-hidden">
+            <div class="mt-24 m-auto" style="text-align: center;">
+                <img style="width:20%;" class="w-2/3 ml-auto mr-auto mb-6"
+                     src="https://namelessmc.com/core/assets/img/site_image.png">
+                <div class=" tracking-widest mt-4">
+                    <span class="text-gray-500 text-6xl block"><span>NO INTERNET</span></span>
+                    <span class="text-gray-500 text-xl">You are not connected to the internet.</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--TERMINAL WINDOW-->
+<div class="hidden">
+    <div id="terminalDiv" class="bg-black border-black">
+        <div class="terminal" id="Terminal">
+        </div>
+    </div>
+</div>
+
+<!--INSTALL OS WINDOW-->
+<div class="hidden">
+    <div id="installOSDiv" class="bg-black border-black">
+        h
+    </div>
+</div>
+
+<!--APP LIST WINDOW-->
+<div class="hidden">
+    <div id="appListDiv" class="bg-black border-black">
+        <div class="overflow-x-auto">
+            <div class="bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
+                <div class="w-full h-full">
+                    <div class="bg-white shadow-md rounded">
+                        <table class="min-w-max w-full table-auto">
+                            <thead>
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">App Name</th>
+                                <th class="py-3 px-6 text-center">Type</th>
+                                <th class="py-3 px-6 text-center">Category</th>
+                                <th class="py-3 px-6 text-center">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-gray-600 text-sm font-light">
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://www.roboticsandbeyond.org/wp-content/uploads/2020/09/minecraftblock.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Minecraft</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Executable File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">GAME</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="return false;" id="minecraftWindow">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://krunkerio.io/data/image/options/krunkerio-icon.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Krunker.io</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Executable File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">GAME</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="return false;" id="krunkerWindow">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Visual Studio Code</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Executable File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">TOOL</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="return false;" id="vscodeWindow">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Calculator_icon.svg/1200px-Calculator_icon.svg.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Calculator</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Executable File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">TOOL</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="return false;" id="calculatorWindow">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://pixlr.com/img/misc/e-icon.svg"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Pixlr</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Executable File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">DESIGN</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="return false;" id="paintWindow">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://content.instructables.com/ORIG/FT4/13FG/JS5CDMMN/FT413FGJS5CDMMN.png?auto=webp&frame=1&md=fd8974071eb56275439103253ddcced6"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Flappy Bird</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Executable File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">GAME</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="return false;" id="flappyWindow">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://www.seekpng.com/png/full/436-4363227_smilingtrump-donald-trump-face.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Flappy Bird: CPK Edition</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Executable File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">GAME</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="return false;" id="flappytrumpWindow">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://seeklogo.com/images/P/pac-man-retro-logo-731613766E-seeklogo.com.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Pacman</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Executable File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">GAME</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="return false;" id="pacmanWindow">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="img/app_icons/watermelon_mc.webp"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Block Ninja HD</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Executable File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">GAME</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="return false;" id="blockninjahdWindow">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://seeklogo.com/images/D/discord-logo-134E148657-seeklogo.com.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Discord</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Browser File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">SOCIAL MEDIA</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="window.open('https://www.discord.com','_blank','noopener,noreferrer,resizable');return false;">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://2.bp.blogspot.com/-gFsA2g18lWQ/XD-ZejQyrfI/AAAAAAAAG6w/98a75D-YjRYMrg73zZ0UUfqdstQS7YBbwCK4BGAYYCw/s1600/Logo%2BTiktok.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">TikTok</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Browser File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">SOCIAL MEDIA</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="window.open('https://www.tiktok.com','_blank','noopener,noreferrer,resizable');return false;">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://pnggrid.com/wp-content/uploads/2021/07/Facebook-Logo-Square-768x768.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Facebook</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Browser File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">SOCIAL MEDIA</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="window.open('https://www.facebook.com','_blank','noopener,noreferrer,resizable');return false;">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://www.iconpacks.net/icons/2/free-youtube-logo-icon-2431-thumb.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Youtube</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Browser File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-sky-200 text-sky-600 py-1 px-3 rounded-full text-xs">STREAMING MEDIA</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="window.open('https://www.youtube.com','_blank','noopener,noreferrer,resizable');return false;">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="mr-2">
+                                            <img width="24" height="24"
+                                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/768px-Spotify_logo_without_text.svg.png"
+                                                 alt="">
+                                        </div>
+                                        <span class="font-medium">Spotify</span>
+                                    </div>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex items-center justify-center">
+                                        <div class="flex items-center">
+                                            <span>Browser File</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-sky-200 text-sky-600 py-1 px-3 rounded-full text-xs">STREAMING MEDIA</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a onclick="window.open('https://open.spotify.com/','_blank','noopener,noreferrer,resizable');return false;">
+                                            <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor"
+                                                          d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/bundle-win-min.js"></script>
+<script src="js/terminal.js"></script>
+<script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
+<script src="js/main.js"></script>
+<script src="js/firstInstall.js"></script>
+
+<script>
+
+    //Check if android
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+        document.body.innerHTML = "Mobile devices are not supported by NamelessOS. Please use personal computer and updated browsers to run this operating system. ";
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body style="overflow: hidden">
+<script src="https://cdn.tailwindcss.com"></script>
+<style type="text/tailwindcss">
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer base {
+        body {
+            cursor: url(/img/cursor/cursor.png), auto;
+        }
+
+        a {
+            cursor: url(/img/cursor/pointer.png), auto;
+        }
+    }
+
+</style>
+<div class="grid grid-rows-3 grid-flow-col gap-1">
+    <div class="row-span-3">
+        <div class="bodyDiv">
+            <div class="grid place-items-center h-screen">
+                <img style="pointer-events: none;" src="https://namelessmc.com/core/assets/img/site_image.png" alt=""
+                     width="80%">
+            </div>
+        </div>
+    </div>
+    <div class="row-auto mt-10 font-mono">
+        <p class="text-3xl text-orange-600">W:\Welcome\to\NamelessMC\OS</p>
+        <br>
+        <br>
+        <p>
+            NamelessmcOS is "operating system" made by nUKEmAN4. But why? Main purpose is for fun XD and to learn
+            TailWindCSS from snippets and library that I found "WinBox". Plz ignore file names, structure and code everything could be done better but eh why xD.
+            Enjoy!
+        </p>
+        <br>
+        <button onclick="window.open('https://namelessmc.com/','_blank');return false;"
+                class="wb-close px-4 py-1 text-lg text-orange-600 font-semibold rounded-full border border-orange-200 hover:text-white hover:bg-orange-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-offset-2">
+            Official NamelessMC Website_
+        </button>
+    </div>
+</div>
+<script>
+
+
+</script>
+</body>
+</html>
